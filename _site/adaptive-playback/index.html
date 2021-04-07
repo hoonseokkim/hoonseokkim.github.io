@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Adaptive Playback - less is more</title>
-<meta name="description" content="">
+<meta name="description" content="To support various tracks in the playlist or mpd without flickering, decoder needs special feature.">
 
 
   <meta name="author" content="hs kim">
@@ -26,7 +26,7 @@
 <meta property="og:url" content="https://hoonseokkim.github.io/adaptive-playback/">
 
 
-  <meta property="og:description" content="">
+  <meta property="og:description" content="To support various tracks in the playlist or mpd without flickering, decoder needs special feature.">
 
 
 
@@ -274,7 +274,7 @@
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Adaptive Playback">
-    <meta itemprop="description" content="">
+    <meta itemprop="description" content="To support various tracks in the playlist or mpd without flickering, decoder needs special feature.">
     <meta itemprop="datePublished" content="2021-04-07T00:00:00+09:00">
     
 
@@ -309,7 +309,17 @@
 
       <section class="page__content" itemprop="text">
         
-        
+        <p>To support various tracks in the playlist or mpd without flickering, decoder needs special feature.</p>
+
+<p>For Android, this feature is called <strong>FEATURE_AdaptivePlayback</strong> in media codec, which let client check whether or not new track can be supported without reinitializing decoder.</p>
+
+<p>For iOS, there is video tool box api called <strong>VTDecompressionSessionCanAcceptFormatDescription</strong>, which is similar with above feature <strong>FEATURE_AdaptivePlayback</strong>.</p>
+
+<p>The only difference is that Android directly asks to hardware decoder and iOS needs <strong>CMFormatDescriptionRef</strong> to call <strong>VTDecompressionSessionCanAcceptFormatDescription</strong>.</p>
+
+<p>Of course even if decoder supports above feature, there is still limitation like different video stream format(AnnexB to AVCC), clear contents to encrypted contents, different codecs, or etc.</p>
+
+<p>If decoder doesn’t support this feature, decoder should be reinitialised and this causes flickering when track is changed.</p>
 
         
       </section>

@@ -1,6 +1,6 @@
 var store = [{
         "title": "Adaptive Playback",
-        "excerpt":" ","categories": [],
+        "excerpt":"To support various tracks in the playlist or mpd without flickering, decoder needs special feature. For Android, this feature is called FEATURE_AdaptivePlayback in media codec, which let client check whether or not new track can be supported without reinitializing decoder. For iOS, there is video tool box api called VTDecompressionSessionCanAcceptFormatDescription,...","categories": [],
         "tags": [],
         "url": "/adaptive-playback/",
         "teaser": null
