@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Inevitable Buffering On Live Hls - less is more</title>
-<meta name="description" content="If HLS doesn’t have EXT-X-ENDLIST tag, then it is live contents.">
+<!-- begin _includes/seo.html --><title>Synchronised Playback - less is more</title>
+<meta name="description" content="I have experience that when I watch football game, our neighbour starts to yell and I can understand why they yelled a few seconds later.">
 
 
   <meta name="author" content="hs kim">
@@ -22,11 +22,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="less is more">
-<meta property="og:title" content="Inevitable Buffering On Live Hls">
-<meta property="og:url" content="https://hoonseokkim.github.io/inevitable-buffering-on-live-hls/">
+<meta property="og:title" content="Synchronised Playback">
+<meta property="og:url" content="https://hoonseokkim.github.io/synchronised-playback/">
 
 
-  <meta property="og:description" content="If HLS doesn’t have EXT-X-ENDLIST tag, then it is live contents.">
+  <meta property="og:description" content="I have experience that when I watch football game, our neighbour starts to yell and I can understand why they yelled a few seconds later.">
 
 
 
@@ -45,7 +45,7 @@
   
 
 
-<link rel="canonical" href="https://hoonseokkim.github.io/inevitable-buffering-on-live-hls/">
+<link rel="canonical" href="https://hoonseokkim.github.io/synchronised-playback/">
 
 
 
@@ -273,15 +273,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Inevitable Buffering On Live Hls">
-    <meta itemprop="description" content="If HLS doesn’t have EXT-X-ENDLIST tag, then it is live contents.">
+    <meta itemprop="headline" content="Synchronised Playback">
+    <meta itemprop="description" content="I have experience that when I watch football game, our neighbour starts to yell and I can understand why they yelled a few seconds later.">
     <meta itemprop="datePublished" content="2021-04-07T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Inevitable Buffering On Live Hls
+          <h1 id="page-title" class="page__title" itemprop="headline">Synchronised Playback
 </h1>
           
 
@@ -309,27 +309,23 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>If HLS doesn’t have <strong>EXT-X-ENDLIST</strong> tag, then it is live contents.</p>
+        <p>I have experience that when I watch football game, our neighbour starts to yell and I can understand why they yelled a few seconds later.</p>
 
-<p><strong>EXT-X-TARGETDURATION</strong> specifies maximum segment duration of media playlist.</p>
+<p>This is because of a few seconds delay between me and my neighbour.</p>
 
-<p>Also HLS specification mentioned like below.</p>
+<p>To minimise this delay, MPEG-DASH introduces suggested presentation delay.</p>
 
-<p><em>When a client loads a Playlist file for the first time or reloads a
-Playlist file and finds that it has changed since the last time it
-was loaded, <strong>the client MUST wait for at least the target duration
-before attempting to reload the Playlist file again</strong>, measured from
-the last time the client began loading the Playlist file.</em></p>
+<p>This suggested presentation delay feature is only applied on live contents. Live contents in DASH mean <strong>MPD@type</strong> is <strong>dynamic</strong>.</p>
 
-<p>And here is the problem.</p>
+<p>Literally suggested presentation delay gives delay of presentation time stamp on each frame of the contents.</p>
 
-<p>Client can always seek to the latest segment of the playlist.</p>
+<p>Client can set suggested presentation delay forcely even if suggested presentation delay doesn’t exist on mpd.</p>
 
-<p>If clients seek to the latest segment when playlist is updated and duration of the latest segment is less than target duration, buffering event is inevitable.</p>
+<p>In this way, HLS also can support sychronised playback if <strong>EXT-X-PROGRAM-DATE-TIME</strong> exists in the playlist.</p>
 
-<p>This buffering event can not be removed even if the lowest bandwidth track is selected.</p>
+<p>To synchronise with each devices, client should also consider server time value because system time of each devices could vary. Client could calculate server time value using Date header field of http from content server. Since the smallest value of Date header is seconds, limitation of synchronised playback is a second.</p>
 
-<p>Best solution would be to set <strong>EXT-X-TARGETDURATION</strong> close to <strong>EXTINF</strong> but this also can’t fully avoid buffering event.</p>
+<p>If client tries to synchronise with multiple players on a device, using system time is more accurate than using Date header field of http.</p>
 
         
       </section>
@@ -350,11 +346,11 @@ the last time the client began loading the Playlist file.</em></p>
       
   <nav class="pagination">
     
-      <a href="#" class="pagination--pager disabled">Previous</a>
+      <a href="/inevitable-buffering-on-live-hls/" class="pagination--pager" title="Inevitable Buffering On Live Hls
+">Previous</a>
     
     
-      <a href="/synchronised-playback/" class="pagination--pager" title="Synchronised Playback
-">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 
@@ -378,7 +374,7 @@ the last time the client began loading the Playlist file.</em></p>
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/synchronised-playback/" rel="permalink">Synchronised Playback
+        <a href="/inevitable-buffering-on-live-hls/" rel="permalink">Inevitable Buffering On Live Hls
 </a>
       
     </h2>
@@ -403,7 +399,7 @@ the last time the client began loading the Playlist file.</em></p>
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">I have experience that when I watch football game, our neighbour starts to yell and I can understand why they yelled a few seconds later.
+    <p class="archive__item-excerpt" itemprop="description">If HLS doesn’t have EXT-X-ENDLIST tag, then it is live contents.
 </p>
   </article>
 </div>

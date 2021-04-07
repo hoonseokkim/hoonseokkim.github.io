@@ -4,4 +4,10 @@ var store = [{
         "tags": [],
         "url": "/inevitable-buffering-on-live-hls/",
         "teaser": null
+      },{
+        "title": "Synchronised Playback",
+        "excerpt":"I have experience that when I watch football game, our neighbour starts to yell and I can understand why they yelled a few seconds later. This is because of a few seconds delay between me and my neighbour. To minimise this delay, MPEG-DASH introduces suggested presentation delay. This suggested presentation...","categories": [],
+        "tags": [],
+        "url": "/synchronised-playback/",
+        "teaser": null
       }]
