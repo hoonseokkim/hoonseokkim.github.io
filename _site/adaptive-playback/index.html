@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Inevitable Buffering On Live Hls - less is more</title>
-<meta name="description" content="If HLS doesn’t have EXT-X-ENDLIST tag, then it is live contents.">
+<!-- begin _includes/seo.html --><title>Adaptive Playback - less is more</title>
+<meta name="description" content="">
 
 
   <meta name="author" content="hs kim">
@@ -22,11 +22,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="less is more">
-<meta property="og:title" content="Inevitable Buffering On Live Hls">
-<meta property="og:url" content="https://hoonseokkim.github.io/inevitable-buffering-on-live-hls/">
+<meta property="og:title" content="Adaptive Playback">
+<meta property="og:url" content="https://hoonseokkim.github.io/adaptive-playback/">
 
 
-  <meta property="og:description" content="If HLS doesn’t have EXT-X-ENDLIST tag, then it is live contents.">
+  <meta property="og:description" content="">
 
 
 
@@ -45,7 +45,7 @@
   
 
 
-<link rel="canonical" href="https://hoonseokkim.github.io/inevitable-buffering-on-live-hls/">
+<link rel="canonical" href="https://hoonseokkim.github.io/adaptive-playback/">
 
 
 
@@ -273,15 +273,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Inevitable Buffering On Live Hls">
-    <meta itemprop="description" content="If HLS doesn’t have EXT-X-ENDLIST tag, then it is live contents.">
+    <meta itemprop="headline" content="Adaptive Playback">
+    <meta itemprop="description" content="">
     <meta itemprop="datePublished" content="2021-04-07T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Inevitable Buffering On Live Hls
+          <h1 id="page-title" class="page__title" itemprop="headline">Adaptive Playback
 </h1>
           
 
@@ -309,27 +309,7 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>If HLS doesn’t have <strong>EXT-X-ENDLIST</strong> tag, then it is live contents.</p>
-
-<p><strong>EXT-X-TARGETDURATION</strong> specifies maximum segment duration of media playlist.</p>
-
-<p>Also HLS specification mentioned like below.</p>
-
-<p><em>When a client loads a Playlist file for the first time or reloads a
-Playlist file and finds that it has changed since the last time it
-was loaded, <strong>the client MUST wait for at least the target duration
-before attempting to reload the Playlist file again</strong>, measured from
-the last time the client began loading the Playlist file.</em></p>
-
-<p>And here is the problem.</p>
-
-<p>Client can always seek to the latest segment of the playlist.</p>
-
-<p>If clients seek to the latest segment when playlist is updated and duration of the latest segment is less than target duration, buffering event is inevitable.</p>
-
-<p>This buffering event can not be removed even if the lowest bandwidth track is selected.</p>
-
-<p>Best solution would be to set <strong>EXT-X-TARGETDURATION</strong> close to <strong>EXTINF</strong> but this also can’t fully avoid buffering event.</p>
+        
 
         
       </section>
@@ -350,11 +330,10 @@ the last time the client began loading the Playlist file.</em></p>
       
   <nav class="pagination">
     
-      <a href="/adaptive-playback/" class="pagination--pager" title="Adaptive Playback
-">Previous</a>
+      <a href="#" class="pagination--pager disabled">Previous</a>
     
     
-      <a href="/synchronised-playback/" class="pagination--pager" title="Synchronised Playback
+      <a href="/inevitable-buffering-on-live-hls/" class="pagination--pager" title="Inevitable Buffering On Live Hls
 ">Next</a>
     
   </nav>
@@ -419,7 +398,7 @@ the last time the client began loading the Playlist file.</em></p>
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/adaptive-playback/" rel="permalink">Adaptive Playback
+        <a href="/inevitable-buffering-on-live-hls/" rel="permalink">Inevitable Buffering On Live Hls
 </a>
       
     </h2>
@@ -444,7 +423,7 @@ the last time the client began loading the Playlist file.</em></p>
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">
+    <p class="archive__item-excerpt" itemprop="description">If HLS doesn’t have EXT-X-ENDLIST tag, then it is live contents.
 </p>
   </article>
 </div>
@@ -523,8 +502,8 @@ the last time the client began loading the Playlist file.</em></p>
     
   <script>
     var disqus_config = function () {
-      this.page.url = "https://hoonseokkim.github.io/inevitable-buffering-on-live-hls/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/inevitable-buffering-on-live-hls"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "https://hoonseokkim.github.io/adaptive-playback/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/adaptive-playback"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');
