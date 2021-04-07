@@ -1,1 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://hoonseokkim.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hoonseokkim.github.io/" rel="alternate" type="text/html" /><updated>2021-04-07T17:04:38+09:00</updated><id>https://hoonseokkim.github.io/feed.xml</id><title type="html">less is more</title><subtitle>Streaming and multimedia story</subtitle><author><name>hs kim</name><email>mailto:hoonseok.dev@gmail.com</email></author><entry><title type="html">First Post</title><link href="https://hoonseokkim.github.io/first-post/" rel="alternate" type="text/html" title="First Post" /><published>2021-04-07T00:00:00+09:00</published><updated>2021-04-07T00:00:00+09:00</updated><id>https://hoonseokkim.github.io/first-post</id><content type="html" xml:base="https://hoonseokkim.github.io/first-post/">&lt;p&gt;First post&lt;/p&gt;</content><author><name>hs kim</name><email>mailto:hoonseok.dev@gmail.com</email></author><summary type="html">First post</summary></entry></feed>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://hoonseokkim.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hoonseokkim.github.io/" rel="alternate" type="text/html" /><updated>2021-04-07T18:52:05+09:00</updated><id>https://hoonseokkim.github.io/feed.xml</id><title type="html">less is more</title><subtitle>Streaming and multimedia story</subtitle><author><name>hs kim</name><email>mailto:hoonseok.dev@gmail.com</email></author><entry><title type="html">Inevitable Buffering On Live Hls</title><link href="https://hoonseokkim.github.io/inevitable-buffering-on-live-hls/" rel="alternate" type="text/html" title="Inevitable Buffering On Live Hls" /><published>2021-04-07T00:00:00+09:00</published><updated>2021-04-07T00:00:00+09:00</updated><id>https://hoonseokkim.github.io/inevitable-buffering-on-live-hls</id><content type="html" xml:base="https://hoonseokkim.github.io/inevitable-buffering-on-live-hls/">&lt;p&gt;If HLS doesn’t have &lt;strong&gt;EXT-X-ENDLIST&lt;/strong&gt; tag, then it is live contents.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;EXT-X-TARGETDURATION&lt;/strong&gt; specifies maximum segment duration of media playlist.&lt;/p&gt;
+
+&lt;p&gt;Also HLS specification mentioned like below.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;When a client loads a Playlist file for the first time or reloads a
+Playlist file and finds that it has changed since the last time it
+was loaded, &lt;strong&gt;the client MUST wait for at least the target duration
+before attempting to reload the Playlist file again&lt;/strong&gt;, measured from
+the last time the client began loading the Playlist file.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;And here is the problem.&lt;/p&gt;
+
+&lt;p&gt;Client can always seek to the latest segment of the playlist.&lt;/p&gt;
+
+&lt;p&gt;If clients seek to the latest segment when playlist is updated and duration of the latest segment is less than target duration, buffering event is inevitable.&lt;/p&gt;
+
+&lt;p&gt;This buffering event can not be removed even if the lowest bandwidth track is selected.&lt;/p&gt;
+
+&lt;p&gt;Best solution would be to set &lt;strong&gt;EXT-X-TARGETDURATION&lt;/strong&gt; close to &lt;strong&gt;EXTINF&lt;/strong&gt; but this also can’t fully avoid buffering event.&lt;/p&gt;</content><author><name>hs kim</name><email>mailto:hoonseok.dev@gmail.com</email></author><summary type="html">If HLS doesn’t have EXT-X-ENDLIST tag, then it is live contents.</summary></entry></feed>
