@@ -2,7 +2,7 @@ If HLS doesn't have **EXT-X-ENDLIST** tag, then it is live contents.
 
 **EXT-X-TARGETDURATION** specifies maximum segment duration of media playlist.
 
-Also HLS specification mentioned like below.
+Also [HLS specification](https://datatracker.ietf.org/doc/html/rfc8216#section-6.3.4) mentioned like below.
 
 _When a client loads a Playlist file for the first time or reloads a
 Playlist file and finds that it has changed since the last time it
@@ -18,4 +18,11 @@ If clients seek to the latest segment when playlist is updated and duration of t
 
 This buffering event can not be removed even if the lowest bandwidth track is selected.
 
-Best solution would be to set **EXT-X-TARGETDURATION** close to **EXTINF** but this also can't fully avoid buffering event.
+Best solution would be to set **EXT-X-TARGETDURATION** close to **EXTINF** but this also can't fully avoid buffering event. This is suggested from [HLS low latency specification](https://datatracker.ietf.org/doc/html/draft-pantos-hls-rfc8216bis#section-6.3.4) like below.
+
+_When a client loads a Playlist file for the first time or reloads a
+Playlist file and finds that it has changed since the last time it
+was loaded, **the client MUST wait for at least the duration of the
+last segment in the Playlist** before attempting to reload the Playlist
+file again, measured from the last time the client began loading the
+Playlist file._
